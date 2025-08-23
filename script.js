@@ -35,7 +35,7 @@ function spawnCards() {
       requestAnimationFrame(() => {
         c.el.style.opacity = 1;
       });
-    }, i * 3000); // xuất hiện mỗi card sau 1s
+    }, i * 1000); // xuất hiện mỗi card sau 1s
   }
 }
 
@@ -64,19 +64,34 @@ animate();
 function blowL() {
   var blowleft = document.getElementsByClassName("blowLeft")[0];
   if (blowleft) {
-    blowleft.style.display = "block";
+    blowleft.style.visibility = "visible";
+    blowleft.style.opacity = 1;
     setTimeout(() => {
-      blowleft.style.display = "none";
+      // blowleft.style.visibility = "hidden";
+      // blowleft.style.opacity = 0;
     }, 2000);
   }
 }
 function blowR() {
   var blowright = document.getElementsByClassName("blowRight")[0];
   if (blowright) {
-    blowright.style.display = "block";
+    blowright.style.visibility = "visible";
+    blowright.style.opacity = 1;
     setTimeout(() => {
-      blowright.style.display = "none";
+      //blowright.style.display = "none";
     }, 2000);
+  }
+}
+//////
+function cardChange(){
+  var cardBD = document.getElementsByClassName("ContainerDiv")[0];
+  var bannerBD = document.getElementsByClassName("banner")[0];
+  if(cardBD ||bannerBD ){
+    bannerBD.style.visibility = "visible";
+    cardBD.style.border = "solid 1px black";
+    cardBD.style.boxShadow = "5px 5px 10px";
+    cardBD.style.borderRadius = "20px";
+    cardBD.style.backgroundColor = "#FFC0CB99";
   }
 }
 
@@ -230,7 +245,7 @@ const SHAKE_TL = () =>
           SOUNDS.POP.play();
           delayedCall(0.2, () => SOUNDS.POP.play());
           delayedCall(0.4, () => SOUNDS.POP.play());
-         
+
           //spawnCards();
         },
         ease: 'Elastic.easeOut',
@@ -309,7 +324,7 @@ RESET();
 const MASTER_TL = timeline({
   onStart: () => {
     SOUNDS.ON.play();
-    
+
   },
   onComplete: () => {
     delayedCall(2, RESET);
@@ -320,14 +335,14 @@ const MASTER_TL = timeline({
 
   set('.birthday-button__cake', { display: 'block' }).
   to('.birthday-button', {
-    onStart: () => {  SOUNDS.CHEER.volume = 0.5; SOUNDS.CHEER.play()},
+    onStart: () => { SOUNDS.CHEER.volume = 0.5; SOUNDS.CHEER.play() },
     scale: 0.4,//set button after
     duration: 0.2
   }).
 
   to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0).
   to('.char', {
-    onStart: () => {  SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL();blowR();},
+    onStart: () => { SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL(); blowR(); () => { }, spawnCards() ,cardChange()},
     delay: 0.75,
     y: () => gsap.utils.random(-100, -200),
     x: () => gsap.utils.random(-50, 50),
