@@ -59,16 +59,28 @@
 } */
 
 
-.blowLeft{
+.blowLeft {
+
     display: none;
     height: 250px;
     width: 500px;
     z-index: 101;
-    position:static;
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: 25%;
+    left: 40%;
     transform: translate(-50%, -50%);
-    
+}
+
+.blowRight {
+  
+    display: none;
+    height: 250px;
+    width: 500px;
+    z-index: 101;
+    position: absolute;
+    top: 25%;
+    left: 60%;
+    transform: translate(-50%, -50%) scaleX(-1);
 }
 
 .conf0 {

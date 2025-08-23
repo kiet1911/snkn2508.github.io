@@ -70,7 +70,15 @@ function blowL() {
     }, 2000);
   }
 }
-
+function blowR() {
+  var blowright = document.getElementsByClassName("blowRight")[0];
+  if (blowright) {
+    blowright.style.display = "block";
+    setTimeout(() => {
+      blowright.style.display = "none";
+    }, 2000);
+  }
+}
 
 const {
   gsap,
@@ -293,7 +301,7 @@ const RESET = () => {
     transformOrigin: '50% 50%'
   });
 
-  set('.birthday-button', { scale: 0.4, x: 0, y: 0 });
+  set('.birthday-button', { scale: 0.3, x: 0, y: 0 });//set button before 
   set('.birthday-button__cake', { display: 'none' });
   set('.cake__candle', { scaleY: 0, transformOrigin: '50% 100%' });
 };
@@ -312,14 +320,14 @@ const MASTER_TL = timeline({
 
   set('.birthday-button__cake', { display: 'block' }).
   to('.birthday-button', {
-    onStart: () => {SOUNDS.CHEER.play()},
-    scale: 0.6,
+    onStart: () => {  SOUNDS.CHEER.volume = 0.5; SOUNDS.CHEER.play()},
+    scale: 0.4,//set button after
     duration: 0.2
   }).
 
   to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0).
   to('.char', {
-    onStart: () => {SOUNDS.HORN.play(); blowL();},
+    onStart: () => {  SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL();blowR();},
     delay: 0.75,
     y: () => gsap.utils.random(-100, -200),
     x: () => gsap.utils.random(-50, 50),
