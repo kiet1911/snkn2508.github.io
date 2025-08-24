@@ -813,7 +813,7 @@ svg {
    .envelope {
     transform: scale(0.5);
     top: 28%;
-    left: -2%;
+    left: -5%;
 }
 
 @media not all and (min-resolution: 0.001dpcm) {

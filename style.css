@@ -54,7 +54,7 @@ body::after {
 
 .birthday-button {
   position: absolute;
-  top: 75%;
+  top: 85%;
   left: 50%;
   transform: scale(0.6);
   transform: translate(-50%, -50%);
@@ -63,13 +63,9 @@ body::after {
   border-radius: 20px;
 }
 
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    @media (max-width:900px) {
-      .birthday-button {
-        top: 105%;
-      }
-    }
+@media (max-width:900px) {
+  .birthday-button {
+    top: 95%;
   }
 }
 
