@@ -557,3 +557,388 @@ svg {
         transform: scale(1.2);
     }
 }
+
+
+/* Styling for the ribbon container */
+.birthday-banner {
+    top: -25%;
+    left: -21%;
+    transform: translate(-50%, -50%);
+    transform: scale(0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 3px;
+    background-color: transparent;
+    /* Hoặc màu nền phù hợp */
+    border-radius: 10px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s ease-in-out, opacity 2s ease-in-out;
+}
+
+@media (max-width:900px) {
+    .birthday-banner {
+        left: -35%;
+        top: -23%;
+
+    }
+}
+
+
+/* Styling for each letter */
+.letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 8px;
+    position: relative;
+    transform-origin: center bottom;
+    border: 2px solid black;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+/* Spacing between words */
+.space {
+    margin: 0 10px;
+}
+
+/* Floating animation (keyframes) */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Apply animation to each letter with different colors and delays */
+.letter:nth-child(1) {
+    animation: float 1.5s ease-in-out infinite 0.1s;
+    background-color: #FFD700;
+}
+
+.letter:nth-child(2) {
+    animation: float 1.2s ease-in-out infinite 0.3s;
+    background-color: #90EE90;
+}
+
+.letter:nth-child(3) {
+    animation: float 1.6s ease-in-out infinite 0.2s;
+    background-color: #ADD8E6;
+}
+
+.letter:nth-child(4) {
+    animation: float 1.4s ease-in-out infinite 0.4s;
+    background-color: #FFB6C1;
+}
+
+.letter:nth-child(5) {
+    animation: float 1.3s ease-in-out infinite 0.15s;
+    background-color: #FAF0E6;
+}
+
+.letter:nth-child(7) {
+    animation: float 1.7s ease-in-out infinite 0.25s;
+    background-color: #DDA0DD;
+}
+
+.letter:nth-child(8) {
+    animation: float 1.1s ease-in-out infinite 0.35s;
+    background-color: #8FBC8F;
+}
+
+.letter:nth-child(9) {
+    animation: float 1.55s ease-in-out infinite 0.1s;
+    background-color: #4682B4;
+}
+
+.letter:nth-child(10) {
+    animation: float 1.35s ease-in-out infinite 0.2s;
+    background-color: #E0FFFF;
+}
+
+.letter:nth-child(11) {
+    animation: float 1.65s ease-in-out infinite 0.3s;
+    background-color: #F0E68C;
+}
+
+.letter:nth-child(12) {
+    animation: float 1.25s ease-in-out infinite 0.4s;
+    background-color: #FFA07A;
+}
+
+.letter:nth-child(13) {
+    animation: float 1.45s ease-in-out infinite 0.15s;
+    background-color: #AFEEEE;
+}
+
+.letter:nth-child(14) {
+    animation: float 1.75s ease-in-out infinite 0.25s;
+    background-color: #DB7093;
+}
+
+.card-wrapper {
+    perspective: 1000px;
+    transform: rotate(-90deg);
+    opacity: 0;
+    /* ẩn ban đầu */
+    transition: opacity 0.5s ease;
+}
+
+.card {
+    width: 180px;
+    height: 280px;
+    background-color: #fff;
+    border: 1px solid #e89ab2;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 250ms;
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.envelope.active .card {
+    transform: rotateY(-15deg);
+    transition-delay: 1750ms;
+
+}
+
+.card-cover {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    outline: 1px solid #e89ab2;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 500ms 0ms;
+    background-color: #fff;
+}
+
+.envelope.active .card-cover {
+    transform: rotateY(-135deg);
+    transition-delay: 2250ms;
+}
+
+.card-side {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.card-side-secondary {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+    position: relative;
+    font-weight: 300;
+    text-align: center;
+    color: #c2185b;
+}
+
+.card-title span {
+    display: block;
+}
+
+.card-title-secondary {
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.card-title-main {
+    font-family: "Petemoss", serif;
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.card-title-apostrophe {
+    position: absolute;
+    top: 34px;
+    right: 8px;
+    font-size: 8px;
+}
+
+.card-body {
+    font-family: "Shantell Sans", serif;
+    padding: 14px;
+    color: #6b2f4f;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.card-body p {
+    margin: 6px 0;
+}
+
+.typing {
+    border-right: 2px solid #c2185b;
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    background-color: #ffcce0;
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    transform: scale(0.6);
+    box-shadow: 0 0 0 3px #e89ab2, 4px 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top: 75px solid transparent;
+    border-right: 150px solid #ffcce0;
+    border-bottom: 125px solid #ffcce0;
+    border-left: 150px solid #ffcce0;
+}
+
+.envelope.active .card-wrapper {
+    animation: show-card 1000ms 600ms forwards;
+    opacity: 1;
+}
+
+.envelope:not(.active) .card-wrapper {
+    animation: hide-card 1000ms forwards;
+}
+
+@keyframes show-card {
+    50% {
+        transform: translateY(-75%) rotate(-90deg);
+        z-index: -1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+        z-index: 10;
+    }
+}
+
+@keyframes hide-card {
+    0% {
+        z-index: 10;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-75%) rotate(-90deg);
+        z-index: -1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(-90deg);
+    }
+}
+
+.envelope-lid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.envelope-lid::before,
+.envelope-lid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: calc(100% - 31.85px);
+    background-color: #c2185b;
+}
+
+.envelope-lid::before {
+    left: 0;
+    transform: rotate(-63.1deg);
+    transform-origin: top left;
+}
+
+.envelope-lid::after {
+    right: 0;
+    transform: rotate(63.1deg);
+    transform-origin: top right;
+}
+
+.envelope-lid-secondary {
+    background-color: #ffcce0;
+    clip-path: polygon(50% 38%, 0 0, 100% 0);
+    transition: transform 500ms 1000ms;
+    transform-origin: top;
+}
+
+.envelope.active .envelope-lid-secondary {
+    transform: rotateX(180deg);
+    transition-delay: 100ms;
+    animation: open-lid-stacking 500ms forwards;
+}
+
+.envelope:not(.active) .envelope-lid-secondary {
+    animation: close-lid-stacking 1250ms forwards;
+}
+
+@keyframes open-lid-stacking {
+    50% {
+        z-index: 1;
+    }
+
+    100% {
+        z-index: -1;
+    }
+}
+
+@keyframes close-lid-stacking {
+
+    0%,
+    50% {
+        z-index: -2;
+    }
+
+    100% {
+        z-index: 1;
+    }
+}
+
+.heart-seal {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36px;
+    height: 32px;
+    background-image: url("heart-seal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+.envelope.active .heart-seal {
+    opacity: 0;
+}

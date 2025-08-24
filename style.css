@@ -259,7 +259,7 @@ label svg:nth-of-type(1) {
   transition: opacity 0.5s;
 }
 
-.card {
+.cardimg {
   position: absolute;
   background: #FADADD;
   color: #333;
@@ -274,7 +274,7 @@ label svg:nth-of-type(1) {
   transition: opacity 0.5s;
 }
 
-.card.show {
+.cardimg.show {
   opacity: 1;
 }
 

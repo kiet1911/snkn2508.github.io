@@ -8,7 +8,7 @@ function random(min, max) {
 
 function createCard(i) {
   const card = document.createElement("div");
-  card.className = "card";
+  card.className = "cardimg";
   card.innerText = "Card " + (i + 1);
   const size = random(120, 180);
   card.style.width = size + "px";
@@ -37,6 +37,31 @@ function spawnCards() {
       });
     }, i * 1000); // xuất hiện mỗi card sau 1s
   }
+}
+function letterActive() {
+  const envelope = document.querySelector('.envelope');
+  envelope.style.opacity = 1;
+
+  setTimeout(() => {
+    
+    envelope.classList.add('active');
+
+    // Sau khi mở thư thì chạy typing effect
+    setTimeout(() => {
+      const text = "To my love,\n\nWishing you the happiest birthday filled with love, joy, and laughter ❤️";
+      const target = document.getElementById("letter-text");
+      let i = 0;
+      const speed = 50; // tốc độ chữ (ms)
+      function typeWriter() {
+        if (i < text.length) {
+          target.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      typeWriter();
+    }, 3000); // chờ animation mở thư xong
+  }, 7000);
 }
 
 function animate() {
@@ -83,16 +108,19 @@ function blowR() {
   }
 }
 //////
-function cardChange(){
+function cardChange() {
   var cardBD = document.getElementsByClassName("ContainerDiv")[0];
   var bannerBD = document.getElementsByClassName("banner")[0];
-  if(cardBD ||bannerBD ){
+  var headBD = document.getElementsByClassName("birthday-banner")[0];
+  if (cardBD || bannerBD) {
     bannerBD.style.visibility = "visible";
+
     cardBD.style.border = "solid 1px black";
     cardBD.style.boxShadow = "5px 5px 10px";
     cardBD.style.borderRadius = "20px";
     cardBD.style.backgroundColor = "#FFC0CB99";
   }
+  setTimeout(() => { headBD.style.visibility = "visible"; headBD.style.opacity = 1; }, 1000);
 }
 
 const {
@@ -342,7 +370,7 @@ const MASTER_TL = timeline({
 
   to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0).
   to('.char', {
-    onStart: () => { SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL(); blowR(); () => { }, spawnCards() ,cardChange()},
+    onStart: () => { SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL(); blowR(); () => { }, spawnCards(), cardChange() , letterActive() },
     delay: 0.75,
     y: () => gsap.utils.random(-100, -200),
     x: () => gsap.utils.random(-50, 50),
