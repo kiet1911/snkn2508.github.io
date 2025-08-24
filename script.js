@@ -48,7 +48,7 @@ function letterActive() {
 
     // Sau khi mở thư thì chạy typing effect
     setTimeout(() => {
-      const text = "To my love,\n\nWishing you the happiest birthday filled with love, joy, and laughter ❤️";
+      const text = "To my love Kim Ngân,\n\nWishing you the happiest birthday filled with love, joy, and laughter ❤️";
       const target = document.getElementById("letter-text");
       let i = 0;
       const speed = 50; // tốc độ chữ (ms)
