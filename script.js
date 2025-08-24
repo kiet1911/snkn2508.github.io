@@ -1,9 +1,9 @@
-const maxCards = 10;
+const maxCards = 14;
 const cards = [];
 const body = document.body;
 const imageList2 = [
   "./img/535936739_744931975000138_4681210885513457437_n.jpg", "./img/knimg0.jpg", "./img/knimg1.jpg", "./img/knimg2.jpg", "./img/knimg3.jpg",
-  "./img/knimg4.jpg", "./img/knimg5.jpg", "./img/knimg6.jpg", "./img/knimg7.jpg", "./img/knimg8.jpg"
+  "./img/knimg4.jpg", "./img/knimg5.jpg", "./img/knimg6.jpg", "./img/knimg7.jpg", "./img/knimg8.jpg", "./img/knimg9.jpg", "./img/knimg10.jpg", "./img/knimg11.jpg", "./img/knimg12.jpg"
 ];
 
 const photos = document.querySelectorAll('.photo img');
