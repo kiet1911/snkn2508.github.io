@@ -2,6 +2,29 @@ const maxCards = 10;
 const cards = [];
 const body = document.body;
 
+const photos = document.querySelectorAll('.photo img');
+
+const imageList = [
+  "./img/535936739_744931975000138_4681210885513457437_n.jpg", "img2.jpg", "img3.jpg", "img4.jpg",
+  "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"
+];
+
+let showingFirstSet = true;
+
+setInterval(() => {
+  photos.forEach((img, i) => {
+    img.classList.add("fade");
+    setTimeout(() => {
+      img.src = showingFirstSet ? imageList[i + 4] : imageList[i];
+      img.classList.remove("fade");
+    }, 300);
+  });
+  showingFirstSet = !showingFirstSet;
+}, 2000);
+
+
+
+
 function random(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -40,10 +63,11 @@ function spawnCards() {
 }
 function letterActive() {
   const envelope = document.querySelector('.envelope');
+   const photoss = document.querySelector('.frame-container');
   envelope.style.opacity = 1;
-
+  photoss.style.opacity = 1;
   setTimeout(() => {
-    
+
     envelope.classList.add('active');
 
     // Sau khi mở thư thì chạy typing effect
@@ -370,7 +394,7 @@ const MASTER_TL = timeline({
 
   to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0).
   to('.char', {
-    onStart: () => { SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL(); blowR(); () => { }, spawnCards(), cardChange() , letterActive() },
+    onStart: () => { SOUNDS.HORN.volume = 1.0; SOUNDS.HORN.play(); blowL(); blowR(); () => { }, spawnCards(), cardChange(), letterActive() },
     delay: 0.75,
     y: () => gsap.utils.random(-100, -200),
     x: () => gsap.utils.random(-50, 50),

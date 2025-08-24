@@ -809,24 +809,25 @@ svg {
     opacity: 0;
     transition: opacity 2s ease-in-out;
 }
-@media (max-width:900px) {
-   .envelope {
-    transform: scale(0.5);
-    top: 28%;
-    left: -5%;
-}
 
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    @media (max-width:900px) {
-      .envelope {
-        transform: scale(0.4);
+@media (max-width:900px) {
+    .envelope {
+        transform: scale(0.5);
         top: 28%;
-        left: -25%;
-      }
+        left: -15%;
     }
-  }
-}
+
+    @media not all and (min-resolution: 0.001dpcm) {
+        @supports (-webkit-appearance: none) {
+            @media (max-width:900px) {
+                .envelope {
+                    transform: scale(0.4);
+                    top: 28%;
+                    left: -25%;
+                }
+            }
+        }
+    }
 
 
 
@@ -963,4 +964,119 @@ svg {
 
 .envelope.active .heart-seal {
     opacity: 0;
+}
+
+
+.frame-container {
+    display: grid;
+    grid-template-columns: repeat(2, 220px);
+    grid-template-rows: repeat(2, 170px);
+    gap: 30px;
+    perspective: 1000px;
+    position: absolute;
+    top: -3%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    transform: scale(0.36);
+    opacity: 0;
+    transition: opacity 2s ease-in-out ;
+}
+
+@media (max-width:900px) {
+    .frame-container {
+        transform: scale(0.3);
+        top: -15%;
+        left : 30%;
+    }
+}
+
+.photo {
+    position: relative;
+    width: 220px;
+    height: 290px;
+    background: #fff;
+    padding: 10px 10px 30px 10px;
+    /* dưới dày hơn */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+
+    transform: rotate(calc(-5deg + 10deg * var(--rand)));
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+.corner.tl {
+    top: -18px;
+    left: -18px;
+}
+
+.corner.tr {
+    top: -18px;
+    right: -18px;
+    transform: rotate(90deg);
+}
+
+.corner.bl {
+    bottom: -18px;
+    left: -18px;
+    transform: rotate(-90deg);
+}
+
+.corner.br {
+    bottom: -18px;
+    right: -18px;
+    transform: rotate(180deg);
+}
+
+/* ảnh chính */
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(calc(-5deg + 10deg * var(--rand)));
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(calc(-5deg + 10deg * var(--rand)));
+    }
+}
+
+/* hiệu ứng nhấp nháy khi đổi ảnh */
+.fade {
+    animation: fadeInOut 0.6s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
