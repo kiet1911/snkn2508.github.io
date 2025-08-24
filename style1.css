@@ -802,7 +802,7 @@ svg {
     place-content: center;
     position: absolute;
     top: 30%;
-    left: 0%;
+    left: 4%;
     transform: translate(-50%, -50%);
     transform: scale(0.6);
     box-shadow: 0 0 0 3px #e89ab2, 4px 4px 12px rgba(0, 0, 0, 0.1);
@@ -814,7 +814,7 @@ svg {
     .envelope {
         transform: scale(0.5);
         top: 28%;
-        left: -15%;
+        left: -5%;
     }
 
     @media not all and (min-resolution: 0.001dpcm) {
