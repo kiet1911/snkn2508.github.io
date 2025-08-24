@@ -1,12 +1,16 @@
 const maxCards = 10;
 const cards = [];
 const body = document.body;
+const imageList2 = [
+  "./img/535936739_744931975000138_4681210885513457437_n.jpg", "./img/knimg0.jpg", "./img/knimg1.jpg", "./img/knimg2.jpg", "./img/knimg3.jpg",
+  "./img/knimg4.jpg", "./img/knimg5.jpg", "./img/knimg6.jpg", "./img/knimg7.jpg", "./img/knimg8.jpg"
+];
 
 const photos = document.querySelectorAll('.photo img');
 
 const imageList = [
-  "./img/535936739_744931975000138_4681210885513457437_n.jpg", "img2.jpg", "img3.jpg", "img4.jpg",
-  "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"
+ "./img/535936739_744931975000138_4681210885513457437_n.jpg", "./img/knimg0.jpg", "./img/knimg1.jpg", "./img/knimg2.jpg", "./img/knimg3.jpg",
+  "./img/knimg4.jpg", "./img/knimg5.jpg", "./img/knimg6.jpg", "./img/knimg7.jpg", "./img/knimg8.jpg"
 ];
 
 let showingFirstSet = true;
@@ -30,14 +34,22 @@ function random(min, max) {
 }
 
 function createCard(i) {
-  const card = document.createElement("div");
+  let card = document.createElement("div");
   card.className = "cardimg";
-  card.innerText = "Card " + (i + 1);
+
+  // thêm ảnh
+  const img = document.createElement("img");
+  img.src = imageList2[i % imageList2.length];
+  card.appendChild(img);
+
+
+
   const size = random(120, 180);
   card.style.width = size + "px";
   card.style.height = size + "px";
   card.style.left = random(0, window.innerWidth - size) + "px";
   card.style.top = random(0, window.innerHeight - size) + "px";
+
   body.appendChild(card);
 
   return {
@@ -72,7 +84,7 @@ function letterActive() {
 
     // Sau khi mở thư thì chạy typing effect
     setTimeout(() => {
-      const text = "To my love Kim Ngân,\n\nWishing you the happiest birthday filled with love, joy, and laughter ❤️";
+      const text = "To my love Kim Ngân,\n\nHappy Birthday, cutie! May your cake be as sweet as you, and may your smile today shine brighter than all the candles. 🎂✨";
       const target = document.getElementById("letter-text");
       let i = 0;
       const speed = 50; // tốc độ chữ (ms)

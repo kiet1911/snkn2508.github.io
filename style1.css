@@ -588,7 +588,6 @@ svg {
 }
 
 
-/* Styling for each letter */
 .letter {
     font-size: 2em;
     font-weight: bold;
@@ -610,85 +609,32 @@ svg {
 }
 
 /* Floating animation (keyframes) */
-@keyframes float {
+@keyframes float1 {
     0% {
         transform: translateY(0) rotate(0deg);
     }
-
     50% {
         transform: translateY(-10px) rotate(3deg);
     }
-
     100% {
         transform: translateY(0) rotate(0deg);
     }
 }
 
 /* Apply animation to each letter with different colors and delays */
-.letter:nth-child(1) {
-    animation: float 1.5s ease-in-out infinite 0.1s;
-    background-color: #FFD700;
-}
-
-.letter:nth-child(2) {
-    animation: float 1.2s ease-in-out infinite 0.3s;
-    background-color: #90EE90;
-}
-
-.letter:nth-child(3) {
-    animation: float 1.6s ease-in-out infinite 0.2s;
-    background-color: #ADD8E6;
-}
-
-.letter:nth-child(4) {
-    animation: float 1.4s ease-in-out infinite 0.4s;
-    background-color: #FFB6C1;
-}
-
-.letter:nth-child(5) {
-    animation: float 1.3s ease-in-out infinite 0.15s;
-    background-color: #FAF0E6;
-}
-
-.letter:nth-child(7) {
-    animation: float 1.7s ease-in-out infinite 0.25s;
-    background-color: #DDA0DD;
-}
-
-.letter:nth-child(8) {
-    animation: float 1.1s ease-in-out infinite 0.35s;
-    background-color: #8FBC8F;
-}
-
-.letter:nth-child(9) {
-    animation: float 1.55s ease-in-out infinite 0.1s;
-    background-color: #4682B4;
-}
-
-.letter:nth-child(10) {
-    animation: float 1.35s ease-in-out infinite 0.2s;
-    background-color: #E0FFFF;
-}
-
-.letter:nth-child(11) {
-    animation: float 1.65s ease-in-out infinite 0.3s;
-    background-color: #F0E68C;
-}
-
-.letter:nth-child(12) {
-    animation: float 1.25s ease-in-out infinite 0.4s;
-    background-color: #FFA07A;
-}
-
-.letter:nth-child(13) {
-    animation: float 1.45s ease-in-out infinite 0.15s;
-    background-color: #AFEEEE;
-}
-
-.letter:nth-child(14) {
-    animation: float 1.75s ease-in-out infinite 0.25s;
-    background-color: #DB7093;
-}
+.letter:nth-child(1) { animation: float1 1.5s ease-in-out infinite 0.1s; background-color: #FFD700; }
+.letter:nth-child(2) { animation: float1 1.2s ease-in-out infinite 0.3s; background-color: #90EE90; }
+.letter:nth-child(3) { animation: float1 1.6s ease-in-out infinite 0.2s; background-color: #ADD8E6; }
+.letter:nth-child(4) { animation: float1 1.4s ease-in-out infinite 0.4s; background-color: #FFB6C1; }
+.letter:nth-child(5) { animation: float1 1.3s ease-in-out infinite 0.15s; background-color: #FAF0E6; }
+.letter:nth-child(7) { animation: float1 1.7s ease-in-out infinite 0.25s; background-color: #DDA0DD; }
+.letter:nth-child(8) { animation: float1 1.1s ease-in-out infinite 0.35s; background-color: #8FBC8F; }
+.letter:nth-child(9) { animation: float1 1.55s ease-in-out infinite 0.1s; background-color: #4682B4; }
+.letter:nth-child(10) { animation: float1 1.35s ease-in-out infinite 0.2s; background-color: #E0FFFF; }
+.letter:nth-child(11) { animation: float1 1.65s ease-in-out infinite 0.3s; background-color: #F0E68C; }
+.letter:nth-child(12) { animation: float1 1.25s ease-in-out infinite 0.4s; background-color: #FFA07A; }
+.letter:nth-child(13) { animation: float1 1.45s ease-in-out infinite 0.15s; background-color: #AFEEEE; }
+.letter:nth-child(14) { animation: float1 1.75s ease-in-out infinite 0.25s; background-color: #DB7093; }
 
 .card-wrapper {
     perspective: 1000px;
