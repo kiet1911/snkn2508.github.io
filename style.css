@@ -67,7 +67,7 @@ body::after {
   @supports (-webkit-appearance: none) {
     @media (max-width:900px) {
       .birthday-button {
-        top: 95%;
+        top: 105%;
       }
     }
   }
